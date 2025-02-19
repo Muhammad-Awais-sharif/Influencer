@@ -1,0 +1,38 @@
+{% extends 'shared/base.html' %}
+ {% block titleBlock %} 
+  <title>{{site_title}}</title>
+ {% endblock titleBlock %}
+
+ {% block stylingBlock %}
+ 
+ {% endblock stylingBlock %}
+
+{% block bodyContent %}
+<div class="row mt-5">
+    <div class="col-lg-6 col-lg-8 py-5 px-3 bg-white  col-10 mx-auto">
+        <h4>CHECK Email </h4>
+        <form action="" method="post">
+          {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+              
+            </div>
+            <button type="submit" class="btn btn-primary d-block ms-auto">Submit</button>
+          </form>   
+          {% if existed %}
+          <div class="col-4 text-center mx-auto  text-danger" style="font-size:60px;">
+            <i class="fa fa-times" aria-hidden="true" ></i>
+                      </div>
+          {% endif %}
+          {% if emailExistStatus %}
+          <div class="col-4 text-center  mx-auto text-success my-3"  style="font-size:60px;"">
+            <i class="fa fa-check" aria-hidden="true"></i>
+                      </div>
+          {% endif %}
+          
+    </div>
+</div>
+{% endblock bodyContent %}
+
+{% block scriptBlock %}{% endblock scriptBlock %}
